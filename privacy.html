@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — ChainKit</title>
+<meta name="description" content="What ChainKit does and does not do with your data. No accounts, no analytics, no cookies, no server." />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#0b0f14" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; form-action 'none'; base-uri 'none'; object-src 'none'; connect-src 'none';" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d9488'/%3E%3Cpath d='M9 21V11m7 10V11m7 10V11' stroke='white' stroke-width='2.6' stroke-linecap='round'/%3E%3Cpath d='M9 16h14' stroke='white' stroke-width='2.6' stroke-linecap='round' opacity='.55'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./assets/chainkit-fonts.css" />
+<script>
+(function(){
+  var pref='system';
+  try{ pref=localStorage.getItem('chainkit_theme')||'system'; }catch(e){}
+  var dark = pref==='dark' || (pref==='system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark?'dark':'light');
+})();
+</script>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+  :root[data-theme="dark"]{
+    --bg:#0b0f14; --surface:#131920; --surface-2:#1b232c;
+    --line:#26313d; --line-strong:#36444f;
+    --text:#eef2f6; --text-2:#b6c1d0; --text-3:#8e9aab;
+    --accent:#2dd4bf; --accent-ink:#0b0f14;
+    --accent-soft:rgba(45,212,191,.12); --accent-line:rgba(45,212,191,.30);
+    --ok:#4ade80; --ok-soft:rgba(74,222,128,.11); --ok-line:rgba(74,222,128,.28);
+    --warn:#fbbf24; --warn-soft:rgba(251,191,36,.11); --warn-line:rgba(251,191,36,.28);
+    --bad:#fb7185; --bad-soft:rgba(251,113,133,.11); --bad-line:rgba(251,113,133,.30);
+    --info:#7dd3fc; --info-soft:rgba(125,211,252,.09); --info-line:rgba(125,211,252,.24);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+  :root[data-theme="light"]{
+    --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f0f2f5;
+    --line:#dfe3e9; --line-strong:#c3cad4;
+    --text:#111820; --text-2:#414b5a; --text-3:#616a7b;
+    --accent:#0f766e; --accent-ink:#ffffff;
+    --accent-soft:rgba(15,118,110,.08); --accent-line:rgba(15,118,110,.28);
+    --ok:#0f7a48; --ok-soft:rgba(15,122,72,.08); --ok-line:rgba(15,122,72,.26);
+    --warn:#8a5300; --warn-soft:rgba(138,83,0,.08); --warn-line:rgba(138,83,0,.24);
+    --bad:#b3261e; --bad-soft:rgba(179,38,30,.07); --bad-line:rgba(179,38,30,.26);
+    --info:#0e6f9e; --info-soft:rgba(14,111,158,.07); --info-line:rgba(14,111,158,.24);
+    --shadow:0 1px 2px rgba(16,24,40,.05), 0 8px 24px -14px rgba(16,24,40,.22);
+  }
+  :root{
+    --r:10px; --r-lg:14px; --r-sm:7px;
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --sans:'IBM Plex Sans',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);background:var(--bg);color:var(--text);
+    line-height:1.65;padding:0 1rem 4rem;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+
+  :focus{outline:none}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+  .skip{
+    position:absolute;left:-9999px;top:0;z-index:100;
+    background:var(--accent);color:var(--accent-ink);
+    padding:10px 16px;border-radius:0 0 var(--r) 0;font-weight:600;
+  }
+  .skip:focus{left:0}
+  .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition-duration:.001ms !important;animation-duration:.001ms !important}
+  }
+
+  .top{display:flex;align-items:center;gap:13px;flex-wrap:wrap;padding:1.6rem 0 1.2rem}
+  .mark{
+    width:38px;height:38px;border-radius:11px;flex-shrink:0;
+    background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;
+  }
+  .mark svg{width:21px;height:21px;display:block}
+  .brand a{
+    font-family:var(--display);font-size:20px;font-weight:700;
+    letter-spacing:-.02em;color:var(--text);text-decoration:none;line-height:1.1;
+  }
+  .brand a:hover{color:var(--accent)}
+  .brand p{font-size:12.5px;color:var(--text-3);margin-top:1px}
+  .top-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .seg{display:flex;gap:2px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:2px}
+  .seg button{
+    background:none;border:none;cursor:pointer;font:inherit;font-size:12px;
+    color:var(--text-3);padding:5px 10px;border-radius:5px;min-height:24px;
+    display:flex;align-items:center;gap:5px;transition:color .15s,background .15s;
+  }
+  .seg button:hover{color:var(--text-2)}
+  .seg button[aria-pressed="true"]{background:var(--surface);color:var(--text);font-weight:600}
+
+  .title{padding:.5rem 0 1.4rem;border-bottom:1px solid var(--line);margin-bottom:1.6rem}
+  .title h1{
+    font-family:var(--display);font-size:clamp(28px,5vw,38px);font-weight:700;
+    letter-spacing:-.025em;line-height:1.1;
+  }
+  .title .meta{
+    display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+    font-size:12.5px;color:var(--text-3);margin-top:11px;
+  }
+  .stamp{
+    font-family:var(--mono);font-size:11.5px;padding:3px 9px;border-radius:20px;
+    background:var(--surface);border:1px solid var(--line);color:var(--text-2);
+  }
+
+  .box{
+    display:flex;align-items:flex-start;gap:12px;border-radius:var(--r);
+    padding:14px 16px;margin:1.3rem 0;font-size:13.5px;color:var(--text-2);
+  }
+  .box i{font-size:19px;flex-shrink:0;margin-top:1px}
+  .box b{display:block;color:var(--text);font-weight:600;margin-bottom:3px;font-size:14px}
+  .box.ok{background:var(--ok-soft);border:1px solid var(--ok-line)}
+  .box.ok i{color:var(--ok)}
+  .box.warn{background:var(--warn-soft);border:1px solid var(--warn-line)}
+  .box.warn i{color:var(--warn)}
+  .box.bad{background:var(--bad-soft);border:1.5px solid var(--bad-line)}
+  .box.bad i{color:var(--bad)}
+  .box.info{background:var(--info-soft);border:1px solid var(--info-line)}
+  .box.info i{color:var(--info)}
+  .box.key{background:var(--accent-soft);border:1px solid var(--accent-line)}
+  .box.key i{color:var(--accent)}
+  .box p{margin-top:7px}
+  .box p:first-of-type{margin-top:0}
+  .box ul{margin:8px 0 0 1.1rem}
+  .box li{margin-bottom:4px;font-size:13px}
+
+  nav.toc{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r-lg);padding:16px 18px;margin-bottom:2rem;box-shadow:var(--shadow);
+  }
+  nav.toc h2{
+    font-family:var(--display);font-size:13px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-bottom:11px;
+  }
+  nav.toc ol{list-style:none;counter-reset:toc;columns:2;column-gap:26px}
+  @media(max-width:620px){nav.toc ol{columns:1}}
+  nav.toc li{counter-increment:toc;margin-bottom:6px;break-inside:avoid}
+  nav.toc a{
+    color:var(--text-2);text-decoration:none;font-size:13.5px;
+    display:flex;gap:9px;align-items:baseline;
+  }
+  nav.toc a::before{
+    content:counter(toc,decimal-leading-zero);
+    font-family:var(--mono);font-size:11px;color:var(--accent);flex-shrink:0;
+  }
+  nav.toc a:hover{color:var(--accent)}
+
+  section{margin-bottom:2.2rem;scroll-margin-top:1rem}
+  section h2{
+    font-family:var(--display);font-size:20px;font-weight:600;letter-spacing:-.015em;
+    margin-bottom:.7rem;display:flex;gap:11px;align-items:baseline;
+  }
+  section h2 .n{
+    font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);flex-shrink:0;
+  }
+  section h3{
+    font-family:var(--display);font-size:15px;font-weight:600;
+    margin:1.3rem 0 .5rem;color:var(--text);
+  }
+  section p{margin-bottom:.85rem;font-size:14.5px;color:var(--text-2)}
+  section p strong,section li strong{color:var(--text);font-weight:600}
+  section ul{margin:0 0 .95rem 0;padding-left:1.15rem}
+  section li{margin-bottom:.5rem;font-size:14.5px;color:var(--text-2)}
+  section li::marker{color:var(--text-3)}
+  a{color:var(--accent)}
+  code{
+    font-family:var(--mono);font-size:.88em;background:var(--surface-2);
+    border:1px solid var(--line);border-radius:4px;padding:1px 5px;
+  }
+  hr{border:none;border-top:1px solid var(--line);margin:2.4rem 0}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:1rem}
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);margin-bottom:1rem}
+  .scroll table{margin-bottom:0}
+  th{
+    text-align:left;font-family:var(--display);font-weight:600;color:var(--text);
+    padding:9px 12px;border-bottom:2px solid var(--line);font-size:11.5px;
+    text-transform:uppercase;letter-spacing:.05em;background:var(--surface-2);
+  }
+  td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text-2)}
+  tr:last-child td{border-bottom:none}
+  td code{white-space:nowrap}
+
+  .store-item{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r);padding:13px 16px;margin-bottom:9px;
+  }
+  .store-item b{font-family:var(--mono);font-size:13px;display:block;margin-bottom:3px;color:var(--text)}
+  .store-item span{font-size:13.5px;color:var(--text-2)}
+
+  .right{
+    border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin-bottom:1rem;
+  }
+  .right b{font-family:var(--display);font-size:14.5px;display:block;margin-bottom:2px;color:var(--text)}
+  .right span{font-size:14px;color:var(--text-2)}
+
+  footer{
+    margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--text-3);
+  }
+  footer p{margin-bottom:8px;max-width:75ch}
+  footer a{color:var(--accent)}
+  footer nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none"><path d="M9 22V10m7 12V10m7 12V10" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><path d="M9 16h14" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" opacity=".5"/></svg>
+    </div>
+    <div class="brand">
+      <a href="./index.html">ChainKit</a>
+      <p>Privacy Policy</p>
+    </div>
+    <div class="top-right">
+      <div class="seg" role="group" aria-label="Colour theme">
+        <button type="button" data-theme-set="light" aria-pressed="false"><i class="ti ti-sun" aria-hidden="true"></i> Light</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false"><i class="ti ti-moon" aria-hidden="true"></i> Dark</button>
+        <button type="button" data-theme-set="system" aria-pressed="false">Auto</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <div class="title">
+      <h1>Privacy Policy</h1>
+      <div class="meta">
+        <span class="stamp">Version 1.0</span>
+        <span class="stamp">Effective 1 August 2026</span>
+        <span>Applies worldwide</span>
+      </div>
+    </div>
+
+    <div class="box key">
+      <i class="ti ti-lock" aria-hidden="true"></i>
+      <div><b>The short version</b>
+      ChainKit has no accounts, no analytics, no advertising, no tracking and no cookies. I do not run a server that could receive your data, and I never see what you look up.
+      <p>But ChainKit is not magic. To find a transaction, whatever you paste has to be sent to the public blockchain services that hold that data — and those are other people's servers. This page explains exactly which ones, and what that means for you.</p>
+      <p>That summary is a guide, not the agreement. Where it differs from the sections below, the sections govern.</p></div>
+    </div>
+
+    <nav class="toc" aria-label="Contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#s1">Who is responsible</a></li>
+        <li><a href="#s2">How ChainKit is built</a></li>
+        <li><a href="#s3">What stays on your device</a></li>
+        <li><a href="#s4">What is sent to third parties</a></li>
+        <li><a href="#s5">Why wallet addresses count as personal data</a></li>
+        <li><a href="#s6">Web hosting and server logs</a></li>
+        <li><a href="#s7">Cookies and similar technology</a></li>
+        <li><a href="#s8">Legal bases for processing</a></li>
+        <li><a href="#s9">How long anything is kept</a></li>
+        <li><a href="#s10">International transfers</a></li>
+        <li><a href="#s11">Your rights, and how to use them</a></li>
+        <li><a href="#s12">Rights in specific countries</a></li>
+        <li><a href="#s13">Children</a></li>
+        <li><a href="#s14">Security</a></li>
+        <li><a href="#s15">Things you should be careful about</a></li>
+        <li><a href="#s16">Changes to this policy</a></li>
+        <li><a href="#s17">Contact and complaints</a></li>
+      </ol>
+    </nav>
+
+    <section id="s1">
+      <h2><span class="n">01</span> Who is responsible</h2>
+      <p>ChainKit is run by <strong>Hunter Rodriguez</strong>, an individual, as a personal project. In data protection language I am the <strong>controller</strong> for the limited processing described here. Contact details are in <a href="#s17">section 17</a>.</p>
+      <p>This policy covers this website only. It does not cover the third-party services ChainKit links to or queries — those are run by other people under their own policies.</p>
+    </section>
+
+    <section id="s2">
+      <h2><span class="n">02</span> How ChainKit is built</h2>
+      <p>Understanding the architecture explains most of this policy, so it is worth one paragraph.</p>
+      <p>ChainKit is a <strong>single static web page</strong>. There is no application server, no database, and no backend of mine anywhere. When you use it, the page is delivered to your browser and then <strong>all of the work happens inside your browser</strong>, on your own device. Your browser talks directly to public blockchain services. Nothing routes through me, and there is no point at which I could collect, read, or store what you searched for — even if I wanted to.</p>
+      <div class="box ok">
+        <i class="ti ti-shield-check" aria-hidden="true"></i>
+        <div><b>What ChainKit does not have</b>
+        <ul>
+          <li>No user accounts, logins, or profiles</li>
+          <li>No analytics of any kind — no Google Analytics, no Plausible, no page-view counter, nothing</li>
+          <li>No advertising, no advertising identifiers, and no data sold or shared with brokers</li>
+          <li>No tracking pixels, beacons, fingerprinting, or session recording</li>
+          <li>No cookies</li>
+          <li>No newsletter, no mailing list, no contact form</li>
+          <li>No access to your wallet's private keys or seed phrase, ever</li>
+        </ul>
+        I have no plans to add any of these. If that ever changed, this policy would change first.</div>
+      </div>
+      <p>Fonts and icons are <strong>served from this site's own domain</strong> rather than from Google Fonts or a content delivery network, specifically so that loading the page does not hand your IP address to a third party.</p>
+    </section>
+
+    <section id="s3">
+      <h2><span class="n">03</span> What stays on your device</h2>
+      <p>ChainKit stores a small amount of information in your browser's <strong>local storage</strong>. This never leaves your device and is not transmitted anywhere. It is not a cookie and is not sent with any request.</p>
+      <div class="store-item"><b>chainkit_theme</b><span>Whether you chose light, dark or automatic colours.</span></div>
+      <div class="store-item"><b>chainkit_tz</b><span>Whether you chose your local time, UTC, or Panama time.</span></div>
+      <div class="store-item"><b>chainkit_history</b><span>Your last 15 lookups, so the Lookup tab can offer them again. This may contain wallet addresses and transaction hashes you searched for.</span></div>
+      <p><strong>You are in complete control of this.</strong> The Lookup tab has a <em>Clear</em> button that deletes the history immediately. Clearing your browser's site data removes everything. Using private or incognito browsing means nothing persists after you close the window. If your browser blocks local storage, ChainKit falls back to holding these values in memory only, and they vanish when you close the tab.</p>
+      <p>Anyone with physical access to your device can read this, the same as your browser history. On a shared or public computer, clear it when you finish.</p>
+    </section>
+
+    <section id="s4">
+      <h2><span class="n">04</span> What is sent to third parties</h2>
+      <p>This is the part that matters most, so it is set out plainly.</p>
+      <p>ChainKit cannot answer a question about a blockchain without asking the people who hold that data. When you search, <strong>your browser sends what you typed directly to one or more public blockchain services</strong>. Those services can see the value you searched for and, as with any web request, your IP address and browser user-agent.</p>
+      <div class="box warn">
+        <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+        <div><b>This is unavoidable, not a design choice</b>
+        The blockchain data lives on their servers, not mine. Any tool that looks up a transaction must contact somebody who has it — including every block explorer you have ever used. The difference is that ChainKit tells you exactly who, which most do not.</div>
+      </div>
+      <h3>What gets sent, and when</h3>
+      <div class="scroll">
+      <table>
+        <caption class="sr">Data sent to third parties by each ChainKit feature</caption>
+        <thead><tr><th scope="col">When you…</th><th scope="col">What is sent</th><th scope="col">Who receives it</th></tr></thead>
+        <tbody>
+          <tr><td>Search a transaction hash</td><td>The hash</td><td>Blockchain nodes and explorer APIs for the chains that hash could belong to</td></tr>
+          <tr><td>Search a wallet address</td><td>The address</td><td>Blockchain nodes for the relevant chains, plus a sanctions-screening service and a name-lookup service for Ethereum-style addresses</td></tr>
+          <tr><td>Search an ENS or Unstoppable name</td><td>The name</td><td>The relevant name resolver, then the services above</td></tr>
+          <tr><td>View Gas fees or Prices</td><td>Nothing about you — just a request for public market data</td><td>Blockchain nodes and CoinGecko</td></tr>
+          <tr><td>Run a Safety check</td><td>The contract or wallet address you entered</td><td>GoPlus Labs, Honeypot.is, and a blockchain data provider</td></tr>
+          <tr><td>Load the Trocador donation widget</td><td>Your IP address, when you click to load it</td><td>Trocador. It does not load unless you ask it to.</td></tr>
+          <tr><td>Click a Directory link</td><td>You leave ChainKit for that site, which then sees you as any visitor would</td><td>The site you clicked</td></tr>
+          <tr><td>Connect a wallet to donate</td><td>Your public wallet address, to your own wallet software</td><td>Your wallet extension and, once you approve, the blockchain network</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Roughly <strong>76 public services</strong> are used across all the chains ChainKit supports — mostly blockchain nodes run by projects like PublicNode, plus block explorer APIs, CoinGecko for prices, and a small number of safety and name-resolution services. Each is contacted only when a feature needs it; a single lookup touches only the chains that could plausibly hold your value, not all 76.</p>
+      <p>The complete list is visible in the page source, which is <a href="https://github.com/hrweb3buttons/pfbuttons" target="_blank" rel="noopener noreferrer">published on GitHub</a>. The page's content security policy also names every permitted destination, so you can verify this claim rather than take my word for it.</p>
+      <p>These services have their own privacy policies and their own logging practices. Some log requests including IP addresses. I have no control over them, no agreement with them, and no ability to delete anything they hold.</p>
+      <div class="box info">
+        <i class="ti ti-shield-lock" aria-hidden="true"></i>
+        <div><b>If this concerns you</b>
+        Using a VPN or the Tor Browser prevents these services from seeing your real IP address. That is a reasonable precaution for anyone researching addresses they would rather not be linked to. ChainKit works normally through both.</div>
+      </div>
+    </section>
+
+    <section id="s5">
+      <h2><span class="n">05</span> Why wallet addresses count as personal data</h2>
+      <p>It would be convenient to claim that a wallet address is anonymous. That is not accurate, and this policy is not going to pretend otherwise.</p>
+      <p>A wallet address is a <strong>persistent identifier</strong>. On its own it names no one, but combined with other information — an exchange's records, a public post, a transaction with someone who knows you, or an IP address recorded at the moment of the lookup — it can be traced back to a person. Under the GDPR and similar laws, that makes it <strong>pseudonymous personal data</strong> rather than anonymous data, and it is treated as personal data here.</p>
+      <p>The practical consequences:</p>
+      <ul>
+        <li>Searching your own address means transmitting a piece of your personal data to third parties. You should know that before you do it, which is why it is stated plainly.</li>
+        <li>Searching <em>someone else's</em> address means transmitting information about <em>them</em>. Blockchains are public and looking at them is lawful, but if you are compiling information about a specific private individual, you may have your own legal obligations. That is on you, not on ChainKit.</li>
+        <li>ChainKit's own lookup history is stored on your device only, so I never hold any of it.</li>
+      </ul>
+    </section>
+
+    <section id="s6">
+      <h2><span class="n">06</span> Web hosting and server logs</h2>
+      <p>ChainKit is hosted on <strong>GitHub Pages</strong>, a service of GitHub, Inc. (a Microsoft company). Delivering a web page requires a server, and that server records requests.</p>
+      <p>GitHub collects standard technical information when your browser requests this page, which typically includes your IP address, the time of the request, the page requested, and your user-agent string. GitHub states it uses this for security, abuse prevention and service operation.</p>
+      <div class="box warn">
+        <i class="ti ti-server" aria-hidden="true"></i>
+        <div><b>An honest limitation</b>
+        These are GitHub's logs, not mine. <strong>I cannot see them, cannot export them, and cannot delete them.</strong> If you ask me to erase everything about you, I can confirm that I hold nothing — but I cannot reach into GitHub's infrastructure on your behalf. For anything relating to those logs you would need to approach GitHub directly, under
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">their privacy statement</a>.</div>
+      </div>
+      <p>I have no analytics account attached to this site and receive no visitor reports, dashboards, or statistics of any kind.</p>
+    </section>
+
+    <section id="s7">
+      <h2><span class="n">07</span> Cookies and similar technology</h2>
+      <p><strong>ChainKit sets no cookies.</strong> There is no cookie banner because there is nothing to consent to.</p>
+      <p>The local storage described in <a href="#s3">section 3</a> is technically a "similar technology" under the EU ePrivacy rules. It is used only to remember settings you chose and lookups you performed — never to track you, build a profile, or identify you across sites, and it is never transmitted. Your theme and timezone choices are strictly necessary to provide the display you asked for. Your lookup history exists purely as a convenience to you, is visible on the page, and can be deleted with one click.</p>
+      <p>Nothing is shared with any third party, and no advertising or measurement technology is present.</p>
+    </section>
+
+    <section id="s8">
+      <h2><span class="n">08</span> Legal bases for processing</h2>
+      <p>For visitors covered by the UK or EU GDPR, or similar regimes:</p>
+      <ul>
+        <li><strong>Performing the service you requested.</strong> Sending your search to blockchain services is the only way to answer your question, and you initiate it deliberately by pressing Search. Legal basis: legitimate interests, and where relevant, the necessity of taking steps at your request.</li>
+        <li><strong>Keeping the site available and secure.</strong> Server logs held by the host serve a legitimate interest in operating the site and preventing abuse.</li>
+        <li><strong>Storing your preferences on your device.</strong> Necessary to provide the functionality you asked for.</li>
+        <li><strong>Correspondence.</strong> If you email me, I process what you send in order to reply.</li>
+      </ul>
+      <p>I do not rely on consent for anything, because there is nothing optional being collected. I do not carry out profiling, and I make no automated decisions that produce legal or similarly significant effects.</p>
+    </section>
+
+    <section id="s9">
+      <h2><span class="n">09</span> How long anything is kept</h2>
+      <div class="scroll">
+      <table>
+        <caption class="sr">Retention periods</caption>
+        <thead><tr><th scope="col">What</th><th scope="col">Where</th><th scope="col">How long</th></tr></thead>
+        <tbody>
+          <tr><td>Theme and timezone preference</td><td>Your browser</td><td>Until you clear site data</td></tr>
+          <tr><td>Lookup history (last 15)</td><td>Your browser</td><td>Until you press Clear, or clear site data. Older entries drop off automatically.</td></tr>
+          <tr><td>Server access logs</td><td>GitHub</td><td>Per GitHub's own retention policy. Outside my control.</td></tr>
+          <tr><td>Data sent to blockchain services</td><td>Those services</td><td>Per their own policies. Outside my control.</td></tr>
+          <tr><td>Emails you send me</td><td>My mailbox</td><td>As long as needed to deal with the matter, then deleted</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>I operate no database and hold no records of visitors. There is nothing on my side with a retention period, because there is nothing on my side.</p>
+    </section>
+
+    <section id="s10">
+      <h2><span class="n">10</span> International transfers</h2>
+      <p>ChainKit is available worldwide and the services it relies on are distributed globally. When your browser contacts a blockchain node or an explorer API, that request may be handled anywhere in the world, including outside your own country and outside the EEA or UK.</p>
+      <p>These transfers happen <strong>directly between your browser and those services</strong>. I am not an intermediary, do not route the traffic, and am not in a position to impose contractual transfer safeguards on services I have no relationship with. This is inherent to how a browser-based blockchain tool works, and it is why it is described here rather than glossed over.</p>
+      <p>If where your data is handled matters to you, use a VPN, or use a blockchain explorer you have vetted yourself instead of this tool.</p>
+    </section>
+
+    <section id="s11">
+      <h2><span class="n">11</span> Your rights, and how to use them</h2>
+      <p>Depending on where you live you may have rights to access, correct, delete, restrict, object to, or port your personal data. I respect these regardless of your location.</p>
+      <div class="box ok">
+        <i class="ti ti-hand-click" aria-hidden="true"></i>
+        <div><b>Most of them, you can exercise yourself, right now</b>
+        Because everything ChainKit stores lives on your own device, you do not need to ask my permission or wait for a response. Clearing your browser's data for this site is a complete and immediate erasure of everything ChainKit holds about you.</div>
+      </div>
+      <div class="right"><b>Access</b><span>Everything ChainKit stores is in your browser's local storage under keys beginning <code>chainkit_</code>. Your browser's developer tools will show it to you. I hold nothing to send you.</span></div>
+      <div class="right"><b>Erasure</b><span>Press <em>Clear</em> in the Lookup tab, or clear site data in your browser. Immediate and complete on my side, because my side is empty.</span></div>
+      <div class="right"><b>Rectification</b><span>There is no stored data about you to correct. If something about you appears on the site itself and is wrong, email me and I will fix it.</span></div>
+      <div class="right"><b>Portability</b><span>The stored values are plain text in local storage and can be copied directly.</span></div>
+      <div class="right"><b>Objection and restriction</b><span>Stop using the site, and nothing further is processed. There is no background activity and no profile to suppress.</span></div>
+      <div class="right"><b>Withdrawing consent</b><span>Not applicable, as nothing here relies on consent.</span></div>
+      <div class="right"><b>No discrimination</b><span>Exercising any right changes nothing about your access. ChainKit is free and identical for everyone.</span></div>
+      <p>If you would still like a formal written response, email me and I will reply within 30 days. I will not ask you to create an account or prove your identity with documents — I could not match you to any record anyway, since none exists.</p>
+    </section>
+
+    <section id="s12">
+      <h2><span class="n">12</span> Rights in specific countries</h2>
+      <h3>European Economic Area and United Kingdom</h3>
+      <p>The rights above reflect the GDPR and UK GDPR. You may lodge a complaint with your national supervisory authority, or with the Information Commissioner's Office in the UK. Given the scale and nature of this project, I have not appointed a data protection officer or an Article 27 representative; ChainKit is not directed at any particular market and carries out no monitoring of individuals.</p>
+      <h3>California</h3>
+      <p>Under the CCPA and CPRA: in the past twelve months I have <strong>not sold or shared any personal information</strong>, and I never will. There is no "Do Not Sell or Share My Personal Information" link because there is nothing to opt out of. I collect no personal information categories for a business purpose, use no sensitive personal information, and do not use personal information for cross-context behavioural advertising.</p>
+      <h3>Brazil</h3>
+      <p>Under the LGPD you have rights of confirmation, access, correction, anonymisation, portability, deletion and information about sharing. These are covered by <a href="#s11">section 11</a>.</p>
+      <h3>Canada</h3>
+      <p>Under PIPEDA you may request access to personal information held about you and challenge its accuracy. As set out above, I hold none.</p>
+      <h3>Panama</h3>
+      <p>Under Law 81 of 2019 on the protection of personal data you have rights of access, rectification, cancellation, portability and opposition, exercisable through the contact details below.</p>
+      <h3>Everywhere else</h3>
+      <p>If your country grants you privacy rights not listed here, contact me and I will honour them so far as I am able. Given that I hold no data, the answer is usually straightforward.</p>
+    </section>
+
+    <section id="s13">
+      <h2><span class="n">13</span> Children</h2>
+      <p>ChainKit is intended for people aged <strong>18 or over</strong> and is not directed at children. I do not knowingly collect personal information from anyone, of any age. There is no account system through which a child could register, and no content aimed at children.</p>
+      <p>If you believe a child has been using the site and something needs attention, please contact me.</p>
+    </section>
+
+    <section id="s14">
+      <h2><span class="n">14</span> Security</h2>
+      <p>Because there is no database and no server of mine, the usual risk — someone breaching a company and stealing user records — does not apply. There are no records to steal.</p>
+      <p>The measures that do apply:</p>
+      <ul>
+        <li>The site is served only over HTTPS, so traffic between your browser and the host is encrypted.</li>
+        <li>A strict content security policy limits what the page may load and which servers it may contact, which reduces the damage any injected code could do.</li>
+        <li>Fonts and icons are self-hosted, so no third-party asset provider sees your visit.</li>
+        <li>The full source is published, so anyone can audit these claims rather than trust them.</li>
+        <li>Outbound links use protections that prevent the destination page from manipulating the tab it was opened from.</li>
+      </ul>
+      <p>No system is perfectly secure. If you find a vulnerability, please report it privately to the address below rather than publicly, and give me a reasonable chance to fix it.</p>
+    </section>
+
+    <section id="s15">
+      <h2><span class="n">15</span> Things you should be careful about</h2>
+      <div class="box bad">
+        <i class="ti ti-key-off" aria-hidden="true"></i>
+        <div><b>Never enter a seed phrase or private key — anywhere</b>
+        ChainKit will never ask for one, and has no field that could accept one. No legitimate service ever will. Anyone asking is trying to steal from you. A wallet address is public and safe to paste; a seed phrase is the key to everything you own.</div>
+      </div>
+      <p><strong>Shared links contain what you searched.</strong> The <em>Copy link</em> button produces a URL with your search term in it. If you send that to someone, they can see the address or hash. That is usually the point, but be deliberate about it.</p>
+      <p><strong>Your history is visible to anyone using your device.</strong> On a shared or public computer, press <em>Clear</em> before you walk away.</p>
+      <p><strong>Connecting a wallet reveals your address to ChainKit's page.</strong> That happens in your browser and is not transmitted to me, but your wallet extension will show you what is being requested. You never have to connect one: every donation address is displayed in full so you can copy it instead.</p>
+      <p><strong>Third-party sites have their own rules.</strong> Once you click a Directory link you are on somebody else's site, subject to their policy, not this one.</p>
+    </section>
+
+    <section id="s16">
+      <h2><span class="n">16</span> Changes to this policy</h2>
+      <p>If this policy changes I will update the version number and effective date at the top of this page. For any change that materially affects your privacy — particularly if a new third-party service is ever introduced — I will note it visibly on the site rather than quietly editing this page.</p>
+      <p>The commitments in <a href="#s2">section 2</a> are ones I intend to keep permanently. If ChainKit ever did add analytics or any form of tracking, this policy would say so before it happened, not afterwards.</p>
+    </section>
+
+    <section id="s17">
+      <h2><span class="n">17</span> Contact and complaints</h2>
+      <p>For any privacy question, request, or complaint:</p>
+      <p><strong>Hunter Rodriguez</strong><br>
+      Email: <a href="mailto:bigtxhunter@proton.me">bigtxhunter@proton.me</a></p>
+      <p>I aim to respond within 30 days. Please put "Privacy" in the subject line so it does not get lost.</p>
+      <p>If you are unhappy with my response, you may complain to your local data protection authority. If you are in the EEA that is your national supervisory authority; in the UK, the Information Commissioner's Office; in Panama, the Autoridad Nacional de Transparencia y Acceso a la Información. I would rather hear from you first, but you do not have to come to me before going to them.</p>
+    </section>
+
+    <hr>
+
+    <p style="font-size:13px;color:var(--text-3)">This policy was last reviewed on 1 August 2026. If you are reading a printed or archived copy, check <a href="./privacy.html">the live version</a> for the current text. See also the <a href="./terms.html">Terms of Use</a>.</p>
+
+  </main>
+
+  <footer>
+    <nav aria-label="Site">
+      <a href="./index.html">ChainKit</a>
+      <a href="./terms.html">Terms of Use</a>
+      <a href="./privacy.html">Privacy Policy</a>
+    </nav>
+    <p>ChainKit is an independent personal project by Hunter Rodriguez. No accounts, no analytics, no cookies, no tracking.</p>
+    <p>&copy; 2026 Hunter Rodriguez.</p>
+  </footer>
+
+</div>
+
+<script>
+function applyTheme(){
+  var pref='system';
+  try{ pref=localStorage.getItem('chainkit_theme')||'system'; }catch(e){}
+  var dark = pref==='dark' || (pref==='system' && matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.setAttribute('data-theme', dark?'dark':'light');
+  document.querySelectorAll('[data-theme-set]').forEach(function(b){
+    b.setAttribute('aria-pressed', b.dataset.themeSet===pref ? 'true':'false');
+  });
+}
+document.querySelectorAll('[data-theme-set]').forEach(function(b){
+  b.addEventListener('click', function(){
+    try{ localStorage.setItem('chainkit_theme', b.dataset.themeSet); }catch(e){}
+    applyTheme();
+  });
+});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+applyTheme();
+</script>
+</body>
+</html>
